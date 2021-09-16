@@ -18,14 +18,14 @@
 
 <!-- Create the JSP gui if desired -->
 <node if="$(arg jsp_gui)" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
-<group unless="$(arg jsp_gui)">
+<!-- <group unless="$(arg jsp_gui)">
     <node pkg="tf2_ros" type="static_transform_publisher" name="init_left_wheel" args="-0.10 .4 0.0 0 0 $(arg wheel_rotation) base wheel_left" />
     <node pkg="tf2_ros" type="static_transform_publisher" name="init_right_wheel" args="-0.10 -.4 0 0 0 $(arg wheel_rotation) base wheel_right" />
     <node pkg="tf2_ros" type="static_transform_publisher" name="init_center_wheel" args=".10 0.0 -0.05 0 0 $(arg wheel_rotation) base wheel_center" />
-</group>
+</group> -->
 
 <!-- Utilizing pub from rostopic to set wheels: DOESNT WORK -->
-<!-- <node unless="$(arg jsp_gui)" pkg="rostopic" type="rostopic" name="init_wheels" args="pub -l /joint_states sensor_msgs/JointState 
+<node unless="$(arg jsp_gui)" pkg="rostopic" type="rostopic" name="init_wheels" args="pub -l /joint_states sensor_msgs/JointState 
 &quot;{
     header: {
         seq: 1, 
@@ -37,7 +37,7 @@
     }, 
     name: ['base_wheel_left_joint', 'base_wheel_right_joint', 'base_wheel_center_joint'], 
     position: [0,0,0]
-}&quot;"/> -->
+}&quot;"/>
 
 <!-- Command which works fine in cmd: -->
 <!-- rostopic pub -l /joint_states sensor_msgs/JointState "{header: {seq: 1, stamp: {secs: 1, nsecs: 0}, frame_id: 'base'}, name: ['base_wheel_left_joint', 'base_wheel_right_joint', 'base_wheel_center_joint'], position: [0,0,0]}" -->
