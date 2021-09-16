@@ -27,14 +27,7 @@
 <!-- Utilizing pub from rostopic to set wheels: DOESNT WORK -->
 <node unless="$(arg jsp_gui)" pkg="rostopic" type="rostopic" name="init_wheels" args="pub -l /joint_states sensor_msgs/JointState 
 &quot;{
-    header: {
-        seq: 1, 
-        stamp: {
-            secs: 1, 
-            nsecs: 0
-            }, 
-        frame_id: 'base'
-    }, 
+    header: auto, 
     name: ['base_wheel_left_joint', 'base_wheel_right_joint', 'base_wheel_center_joint'], 
     position: [0,0,0]
 }&quot;"/>
