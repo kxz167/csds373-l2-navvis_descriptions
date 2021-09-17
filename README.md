@@ -16,6 +16,16 @@ URDF Files:
 - navvis.xacro - Completed xacro file for running the robot.
 - navvis_urdf_from_xacro.urdf - converted file for checking urdf (outdated).
 
+#### Project directory:
+- navvis_descriptions (Will be named `csds373_f21_kxz167_l2_navvis_descriptions` due to github clone.)
+    - config
+        - config.rviz
+    - urdf
+        - navvis.urdf
+        - navvis.xacro
+        - navvis_urdf_from_xacro.urdf
+    -
+
 ### Running:
 Confirm ROS is available in the shell:
 ```
@@ -45,3 +55,7 @@ NOTE: depending on other package names from other students, pacakge direction ma
 Options:
 - `use_xacro:= [true/false]` - Use the xacro file (true) or the urdf file (false : default)
 - `jsp_gui:= [true/false]` - Utilize the Joint State Processor Gui to command wheels (true : default) or "render" vehicles through single joint msg (false)
+
+### Notes:
+- You will need to rename the downloaded folder to navvis_descriptions in order to match the directory naming scheme due to github package naming conventions. In terms of running, this does not seem to impact running the code.
+- For the full functionality, the `use_xacro:=true` flag should be used. Utilizing the old URDF file will not show the completed robot.
