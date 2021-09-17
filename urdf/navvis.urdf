@@ -2,14 +2,14 @@
     <!-- base of the robot !-->
     <link name="base">
         <visual>
-            <!-- Shifts the box up !-->
+            <!-- Shifts the box up -->
             <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <box size="0.45 0.78 1.92" />
             </geometry>
         </visual>
         <collision>
-            <!-- Shifts the box up !-->
+            <!-- Shifts the box up -->
             <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <box size="0.45 0.78 1.92" />
@@ -18,17 +18,14 @@
     </link>
 
     <!-- child of the base -->
+    <!-- Laser Vertices -->
     <link name="laser_vert_bottom">
         <visual>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
         </visual>
         <collision>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
@@ -37,15 +34,11 @@
 
     <link name="laser_vert_top_right">
         <visual>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
         </visual>
         <collision>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
@@ -54,32 +47,25 @@
 
     <link name="laser_vert_top_left">
         <visual>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
         </visual>
         <collision>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>
         </collision>
     </link>
 
+    <!-- LIDAR -->
     <link name="laser_horiz">
         <visual>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <cylinder radius=".052" length=".072"/>
             </geometry>
         </visual>
         <collision>
-            <!-- Shifts the box up !-->
-            <!-- <origin xyz = "0.0 0.0 0.96" rpy="0.0 0.0 0.0"/> -->
             <geometry>
                 <box size="0.062 0.062 .087" />
             </geometry>

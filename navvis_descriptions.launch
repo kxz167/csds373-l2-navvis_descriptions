@@ -14,17 +14,9 @@
 <param if="$(arg use_xacro)" name="robot_description" command="$(find xacro)/xacro $(arg file)" />
 <param unless="$(arg use_xacro)" name="robot_description" textfile="$(arg file)" />
 
-<arg name="wheel_rotation" value="$(eval 3.14159265 / -2)" />
-
 <!-- Create the JSP gui if desired -->
 <node if="$(arg jsp_gui)" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
-<!-- <group unless="$(arg jsp_gui)">
-    <node pkg="tf2_ros" type="static_transform_publisher" name="init_left_wheel" args="-0.10 .4 0.0 0 0 $(arg wheel_rotation) base wheel_left" />
-    <node pkg="tf2_ros" type="static_transform_publisher" name="init_right_wheel" args="-0.10 -.4 0 0 0 $(arg wheel_rotation) base wheel_right" />
-    <node pkg="tf2_ros" type="static_transform_publisher" name="init_center_wheel" args=".10 0.0 -0.05 0 0 $(arg wheel_rotation) base wheel_center" />
-</group> -->
-
-<!-- Utilizing pub from rostopic to set wheels: DOESNT WORK -->
+<!-- Utilizing pub from rostopic to set wheels:-->
 <node unless="$(arg jsp_gui)" pkg="rostopic" type="rostopic" name="init_wheels" args="pub -l /joint_states sensor_msgs/JointState 
 &quot;{
     header: auto, 
@@ -32,10 +24,15 @@
     position: [0,0,0]
 }&quot;"/>
 
-<!-- Command which works fine in cmd: -->
-<!-- rostopic pub -l /joint_states sensor_msgs/JointState "{header: {seq: 1, stamp: {secs: 1, nsecs: 0}, frame_id: 'base'}, name: ['base_wheel_left_joint', 'base_wheel_right_joint', 'base_wheel_center_joint'], position: [0,0,0]}" -->
+<!-- Utilizing static_transform_publisher for continuous joint initialization -->
+<!-- <arg name="wheel_rotation" value="$(eval 3.14159265 / -2)" />
+<group unless="$(arg jsp_gui)">
+    <node pkg="tf2_ros" type="static_transform_publisher" name="init_left_wheel" args="-0.10 .4 0.0 0 0 $(arg wheel_rotation) base wheel_left" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="init_right_wheel" args="-0.10 -.4 0 0 0 $(arg wheel_rotation) base wheel_right" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="init_center_wheel" args=".10 0.0 -0.05 0 0 $(arg wheel_rotation) base wheel_center" />
+</group> -->
 
-<!-- Run static publisher for fixed joints -->
+<!-- Run static publisher for initializing fixed joints -->
 <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />    
 
 <!-- RVIZ -->
